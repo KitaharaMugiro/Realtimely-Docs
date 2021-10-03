@@ -17,5 +17,5 @@ npm install realtimely
 
 ## via yarn
 ```sh
-yarn install realtimely
+yarn add realtimely
 ```
