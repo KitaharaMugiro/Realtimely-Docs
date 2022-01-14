@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# useRealtimeSharedStatte
+# useRealtimeSharedState
 
 This method can be used like React's `useState` to send the state change to the server and share the state with all users viewing the same URL.
 

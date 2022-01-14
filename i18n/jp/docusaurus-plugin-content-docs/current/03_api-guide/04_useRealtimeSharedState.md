@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# useRealtimeSharedStatte
+# useRealtimeSharedState
 
 本メソッドは、Reactの`useState`のように使えてt、状態の変化をサーバに送り同じURLを見ているすべてのユーザにその状態を共有することができます。
 

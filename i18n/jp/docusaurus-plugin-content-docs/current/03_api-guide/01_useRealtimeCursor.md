@@ -47,6 +47,28 @@ return (
 );
 ```
 
+## カスタム情報を付与してカスタムビューを描画する
+`useRealtimeCursor`の第二引数にString形式でカスタムの情報を付与することができる。
+この情報を付与すると、`CustomCursorViewParameter`の`customInfo`にその情報へアクセスが可能になるため、カスタムビューを作成する際にその情報を利用することができる。
+
+```tsx
+const [customUserInfo, setCustomeUserInfo] = useState({ name: "", id: "" })
+const { onMouseMove, renderCursors } = useRealtimeCursor(100, JSON.stringify(customUserInfo))
+
+useEffect(() => {
+    const id = uuidv4()
+    const name = id.substring(0, 5)
+    setCustomeUserInfo({ name, id })
+}, [])
+
+/**カスタムビューを設定したい場合 */
+const customView = (param: CustomCursorViewParameter) => {
+    console.log({ customInfo: param.customInfo })
+    return (<Cursor userInfo={param.userInfo} />)
+}
+```
+
+
 ## delete time
 ユーザがオフラインになると、サーバへデータが送られなくなります。
 各データにはサーバで振り分けたdelete timeが設定されており、`useRealtimeCursor`ではdelete timeを超えたデータは取り除きます。
